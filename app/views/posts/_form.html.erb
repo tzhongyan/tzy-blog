@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %><br />
     <%= form.text_field :title, id: :post_title %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :content %> <br />
     <div id="post_content_area">
     <%= form.text_area :content, id: :post_content %>
     </div>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :category_id %> <br />
     <%= form.collection_select(:category_id, Category.all, :id, :name, {prompt: "Choose a category" }) %><br>
   </div>
@@ -44,7 +44,6 @@ $("#submission_box").submit(function() {
   var contents = $('#post_content_area').markdownEditor('content');
   console.log('content=' +content);
   $('<textarea>')
-  .attr('type', 'text')
   .attr('name', 'post[content]')
   .val(contents)
   .appendTo('#submission_box');

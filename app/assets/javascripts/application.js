@@ -23,3 +23,4 @@
 //= require ace/mode-markdown
 //= require ace/ext-language_tools
 //= require bootstrap-markdown-editor
+//= require rails-timeago

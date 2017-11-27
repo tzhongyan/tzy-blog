@@ -1,5 +1,8 @@
-<% Category.all.each do |category| %>
-  <li>
-  <%= link_to category.name, posts_path(category: category.name) %>
-  </li>
+<% if false %>
+  <% Category.all.each do |category| %>
+    <li>
+    <%= link_to category.name, posts_path(category: category.name) %>
+    </li>
+  <% end %>
 <% end %>
+<p>nav bar to be done</p>

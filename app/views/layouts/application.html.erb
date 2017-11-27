@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TZY Blog</title>
+    <title>Blog of TZY <%= yield(:title) %></title>
     <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,7 +20,7 @@
     <div class = "jumbotron">
       <div class = "container">
         <h1>Blog of TZY</h1>
-        <p>Perhaps better than reading newspaper. - AhYap</p>
+        <p><i>"Better than reading newspaper."</i> - AhYap</p>
       </div>
     </div>
 

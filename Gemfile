@@ -67,3 +67,9 @@ gem 'bootstrap-sass'
 # md editor for post creation
 gem 'ace-rails-ap'
 gem 'bootstrap-markdown-editor-rails'
+
+# for showing MD pages
+gem 'redcarpet'
+
+# for showing time looking marvelously
+gem 'rails-timeago'
