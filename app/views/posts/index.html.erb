@@ -9,22 +9,28 @@
     <div class="panel-heading">
       <h1><%= link_to post.title, post %></h1>
       <p><i>
-        Posted <%= timeago_tag post.created_at, :limit => 10.days.ago %>. Category: <%= post.category.name %>
+        Posted <%= timeago_tag post.created_at, :limit => 7.days.ago %>. Category: <%= post.category.name %>
       </i></p>
     </div>
     
     <div class="panel-body">
-        <% if post.content.scan(/[\w-]+/).size > 200 %>
-          <%= raw post.content.truncate_words(200) %>
-          <%= link_to 'Continue reading', post %>
+      <% if post.content.scan(/[\w-]+/).size > 200 %>
+        <%= raw post.content.truncate_words(200) %>
+        <%= link_to 'Continue reading', post %>
 
-        <% else %>
-          <%= raw post.content %>
-        <% end %>
+      <% else %>
+        <%= raw post.content %>
+      <% end %>
+    </div>
+
+    <div class="panel-footer">
+      <%= link_to "Comment count", 
+      post_path(post, :anchor => "disqus_thread"), 
+      :"data-disqus-identifer" => post.id %>
     </div>
   </div>
 <% end %>
 
 <br>
-
+<script id="dsq-count-scr" src="//EXAMPLE.disqus.com/count.js" async></script>
 <%= link_to 'New Post', new_post_path %>
