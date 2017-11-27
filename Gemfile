@@ -58,3 +58,12 @@ gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 # using devise for user control
 gem 'devise'
+
+# bootstrap and angularjs gems
+gem 'jquery-rails'
+gem 'angularjs-rails'
+gem 'bootstrap-sass'
+
+# md editor for post creation
+gem 'ace-rails-ap'
+gem 'bootstrap-markdown-editor-rails'

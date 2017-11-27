@@ -13,3 +13,13 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require angular
+//= require angular-resource
+//= require bootstrap-sprockets
+//= require ace-rails-ap
+//= require ace/theme-tomorrow
+//= require ace/mode-markdown
+//= require ace/ext-language_tools
+//= require bootstrap-markdown-editor

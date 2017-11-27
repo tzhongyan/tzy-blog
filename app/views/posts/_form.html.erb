@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post, local: true, id: 'submission_box') do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,17 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title %><br />
     <%= form.text_field :title, id: :post_title %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, size: "60x12",id: :post_content %>
+    <%= form.label :content %> <br />
+    <div id="post_content_area">
+    <%= form.text_area :content, id: :post_content %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
+    <%= form.label :category_id %> <br />
     <%= form.collection_select(:category_id, Category.all, :id, :name, {prompt: "Choose a category" }) %><br>
   </div>
 
@@ -30,3 +32,21 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+$('#post_content_area').markdownEditor({
+  // Options
+  preview: false
+});
+
+// put content into form
+$("#submission_box").submit(function() {
+  var contents = $('#post_content_area').markdownEditor('content');
+  console.log('content=' +content);
+  $('<textarea>')
+  .attr('type', 'text')
+  .attr('name', 'post[content]')
+  .val(contents)
+  .appendTo('#submission_box');
+});
+</script>
