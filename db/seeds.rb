@@ -11,6 +11,14 @@ Category.create(name: 'Shitpost')
 Category.create(name: 'Memes')
 Category.create(name: 'Others')
 
+Author.create(
+    {
+        email:'user@email.com',
+        password:'password',
+        sign_in_count:0
+    }
+)
+
 Post.create(
     {
         title: "Test post",

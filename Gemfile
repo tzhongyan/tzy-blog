@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # using environment file
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
+
+# using devise for user control
+gem 'devise'
