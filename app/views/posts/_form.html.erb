@@ -18,6 +18,7 @@
 
   <div class="form-group">
     <%= form.label :content %> <br />
+    <a href="https://pic.tzhongyan.com" target="_blank">Upload picture here.</a>
     <div id="post_content_area">
     <%= form.text_area :content, id: :post_content %>
     </div>
@@ -33,10 +34,16 @@
   </div>
 <% end %>
 
+<script src='https://cdn.rawgit.com/showdownjs/showdown/1.8.3/dist/showdown.min.js'></script>
 <script>
 $('#post_content_area').markdownEditor({
   // Options
-  preview: false
+  preview: true,
+  onPreview: (content, cb) => {
+    let converter = new showdown.Converter();
+    cb(converter.makeHtml(content));
+  },
+  imageUpload: false
 });
 
 // put content into form

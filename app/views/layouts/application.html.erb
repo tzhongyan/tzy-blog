@@ -31,9 +31,7 @@
           <%= link_to('Edit profile', edit_author_registration_path)  %> </ul> |
           <%= link_to('Logout', destroy_author_session_path, method: :delete) %>        
         <% else %>
-            <%= link_to('Sign-In', new_author_session_path)  %> </ul> |
-            <%= link_to('New author?', new_author_registration_path)  %> </ul>
-          
+            <%= link_to('Sign-In', new_author_session_path)  %> </ul>
         <% end %>
       </span>
 
