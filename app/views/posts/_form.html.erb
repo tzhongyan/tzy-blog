@@ -18,7 +18,7 @@
 
   <div class="form-group">
     <%= form.label :content %> <br />
-    <a href="https://pic.tzhongyan.com" target="_blank">Upload picture here.</a>
+    <a href="https://pic.tzhongyan.com/" target="_blank">Upload picture here.</a>
     <div id="post_content_area">
     <%= form.text_area :content, id: :post_content %>
     </div>
@@ -30,8 +30,10 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
+      <%= link_to 'Cancel', root_path, class: "btn btn-danger" %>
   </div>
+
 <% end %>
 
 <script src='https://cdn.rawgit.com/showdownjs/showdown/1.8.3/dist/showdown.min.js'></script>
@@ -52,6 +54,7 @@ $("#submission_box").submit(function() {
   console.log('content=' +content);
   $('<textarea>')
   .attr('name', 'post[content]')
+  .attr('style', 'display:none;')
   .val(contents)
   .appendTo('#submission_box');
 });

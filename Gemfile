@@ -63,6 +63,10 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'angularjs-rails'
 gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+
+# font awesome
+gem "font-awesome-rails"
 
 # md editor for post creation
 gem 'ace-rails-ap'

@@ -15,30 +15,85 @@
   </head>
 
   <body>
+    <!-- Navigation bar -->
+      <div class = "blog-masthead">
+        <nav class="navbar navbar-default blog-nav">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Home</a>
+            </div>
 
-    <!-- Header -->
-    <div class = "jumbotron">
-      <div class = "container">
-        <h1>Blog of TZY</h1>
-        <p><i>"Better than reading newspaper."</i> - AhYap</p>
+            <ul class="nav navbar-nav navbar-right">
+            <% if author_signed_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user fa-fw"></i> User <% current_author %>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><%= link_to('<i class="fa fa-pencil fa-fw"></i> New Post'.html_safe, new_post_path) %></li>
+                <li><%= link_to('<i class="fa fa-cog fa-fw"></i> Edit profile'.html_safe, edit_author_registration_path) %></li>
+                <li><%= link_to('<i class="fa fa-sign-out fa-fw"> </i> Logout'.html_safe, destroy_author_session_path, method: :delete) %></li>
+              </ul>
+            </li>
+            <% else %>
+              <li><%= link_to('Login<i class="fa fa-sign-in fa-fw"> </i>'.html_safe, new_author_session_path)  %></li>
+            <% end %>
+            </ul>
+          </div>
+        </nav>
       </div>
-    </div>
+    <!-- Header -->
+    <header class = "blog-header">
+      <div class = "container">
+        <h1 class="blog-title">Blog of TZY</h1>
+        <p class="lead blog-description"><i>"Better than reading newspaper."</i> - AhYap</p>
+      </div>
+    </header>
+
+    <button onclick="topFunction()" id="topBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button> 
 
     <!-- Post body -->
     <div class = "container">
-      <span class = "pull-right">
-        <% if author_signed_in? %>
-          <%= link_to('Edit profile', edit_author_registration_path)  %>  |
-          <%= link_to('Logout', destroy_author_session_path, method: :delete) %>        
-        <% else %>
-            <%= link_to('Sign-In', new_author_session_path)  %> 
-        <% end %>
-      </span>
+      <!-- Notice and alert from, well rails -->
+      <p id="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-        <p id="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
-        <%= yield %>
+      <!-- yielding Body -->
+      <%= yield %>
     </div>
+
+    <footer class="blog-footer">
+    <div>
+    <a href='/' target='_blank'>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+
+    <a href='https://twitter.com/tzhongyan' target='_blank'>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+
+    <a href='https://github/tzhongyan' target='_blank'>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    </div>
+
+
+    <p><i class="fa fa-copyright fa-fw"></i>tzhongyan.</p>
+    </footer>
   </body>
 </html>
