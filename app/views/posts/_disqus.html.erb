@@ -6,7 +6,7 @@
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
 var disqus_config = function () {
-this.page.url = '<%= url_for(host: ENV['APPLICATION_HOST']) %>'; 
+this.page.url = 'https://scalable.tzhongyan.com/<%= url_for(host: ENV['APPLICATION_HOST']) %>'; 
 this.page.identifier = 'post-<%= @post.id %>';
 this.page.title = '<%= @post.title %>';  
 };
