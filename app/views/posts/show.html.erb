@@ -9,7 +9,7 @@
 </div>
 <hr />
 
-<div id="post"><%= raw @post.content %></div>
+<div id="post"><%= markdown(@post.content) %></div>
 
 
 <% if author_signed_in? %>

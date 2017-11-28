@@ -15,11 +15,11 @@
     
     <div class="panel-body">
       <% if post.content.scan(/[\w-]+/).size > 200 %>
-        <%= raw post.content.truncate_words(200) %>
+        <%= markdown(post.content.truncate_words(200)) %>
         <%= link_to 'Continue reading', post %>
 
       <% else %>
-        <%= raw post.content %>
+        <%= markdown(post.content) %>
       <% end %>
     </div>
 

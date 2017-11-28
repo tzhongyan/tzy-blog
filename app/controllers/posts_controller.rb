@@ -5,31 +5,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all.order("created_at DESC")
-    @posts.each do |post|
-      # Transform into HTML:
-      # initialise renderer
-      renderer = Redcarpet::Render::HTML.new(
-        prettify: true,
-        hard_wrap: true,
-        escape_html: true
-      )
-      markdown = Redcarpet::Markdown.new(renderer, extensions = {})
-      post.content = markdown.render(post.content)    
-    end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    # initialise renderer
-    renderer = Redcarpet::Render::HTML.new(
-      prettify: true,
-      hard_wrap: true,
-      escape_html: true
-    )
-    markdown = Redcarpet::Markdown.new(renderer, extensions = {})
-    @post.content = markdown.render(@post.content)
   end
 
   # GET /posts/new
