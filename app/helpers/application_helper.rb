@@ -37,5 +37,10 @@ module ApplicationHelper
     def block_code(code, lang)
       %(<pre><code class="#{lang} block-code">#{code}</code></pre>)
     end
+
+    # using bootstrap image
+    def image(link, title, alt_text)
+      %(<div class="text-center"><img class="img-responsive" src="#{link}" title="#{title}" alt="#{alt_text}"></div>)
+    end
   end
 end
